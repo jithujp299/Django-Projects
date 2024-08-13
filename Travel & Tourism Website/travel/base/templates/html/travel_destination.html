@@ -1,0 +1,64 @@
+
+{% extends 'html/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_2">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>Destinations</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="packages" id="packages">
+        <div class="container">
+          <div class="main-txt">
+            <h1>TOP DESTINATIONS</h1>
+          </div>
+          <div class="row" style="margin-top: 30px;">
+            {%for dest in dests%}
+            <div class="col-md-4 py-3 py-md-0 mb-4">
+              <div class="card bg-dark">
+                <a href='destination_details/{{ dest.dest_name }}'>
+                  <img src="{{ dest.img1.url }}" alt="" style="width: 430px; height: 300px; object-fit: cover;">
+               </a>
+                <div class="card-body">
+                <a href='destination_details/{{dest.dest_name}}' ><h3>{{dest.dest_name}}</h3></a>
+                  <p><i class="bi bi-geo-alt-fill"></i>  {{dest.country}}</p>
+                  <div class="star">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star "></i>
+                    <i class="fa-solid fa-star "></i>
+                  </div>
+                  <div class="days">
+                  <h6>Price: <strong>₹{{dest.price}}</strong></h6>
+                  
+                  <a href='destination_details/{{dest.dest_name}}'><i class="fa-regular fa-clock"></i></i>  {{dest.days}} Days</a>
+                 </div>
+                </div>
+               
+              </div>
+            </div>
+            {%endfor%}
+        
+    </div>
+  </div>
+</section>
+
+   
+
+    {% endblock content %}

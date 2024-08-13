@@ -1,0 +1,96 @@
+{% extends 'html/base.html' %}
+
+{% block title %}Upcoming Trips{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<style>
+    .container {
+    margin-top: 80px;
+    height: 100vh;
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #e6eaee;
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+    padding: 20px;
+    color: #ffffff;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.card-text strong {
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #FF4A52;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #1EC6B6;
+    color: #fff !important;
+}
+
+.text-center {
+    text-align: center;
+}
+</style>
+
+
+<div class="container">
+    <h2 class="text-center mb-4">Upcoming Trips</h2>
+
+    {% if bookings %}
+        <div class="row">
+            {% for booking in bookings %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body bg-dark">
+                            <h5 class="card-title">{{ booking.destination.dest_name }}</h5>
+                            <p class="card-text"><strong>Travel Date:</strong> {{ booking.travel_date }}</p>
+                            <p class="card-text"><strong>Number of People:</strong> {{ booking.number_of_people }}</p>
+                            <p class="card-text"><strong>Total Price:</strong> ₹{{ booking.payment_amount }}</p>
+                            <a href="{% url 'booking_detail' booking.id %}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center">No upcoming trips found.</p>
+    {% endif %}
+</div>
+
+{% endblock content %}

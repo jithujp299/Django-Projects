@@ -1,0 +1,64 @@
+
+{% extends 'html/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+
+<section class="book mt-5" id="book" style="background-color: black;">
+  <div class="container">
+
+    <div class="main-text pb-3">
+      <h1><span>B</span>ook Your Trip to {{ destination.dest_name }}</h1></h1>
+    </div>
+    
+    <div class="row">
+
+      <div class="col-md-6 py-3 py-md-0">
+        <div class="card-1">
+          <img src="/static/img/banner/booking.jpg" alt="Empty">
+        </div>
+      </div>
+
+      <div class="col-md-6 py-3 py-md-0">
+        <form  method="post" action="{% url 'book_trip' %}">
+          {% csrf_token %}
+
+        <input type="hidden" name="destination" value="{{ destination.dest_id }}">
+        <div class="form-group pb-4">
+            <label for="name">Name :</label>
+            <input type="text" class="form-control mt-1" id="name" name="name" required>
+        </div>
+        <div class="form-group pb-4">
+            <label for="email">Email :</label>
+            <input type="email" class="form-control mt-1" id="email" name="email" required>
+        </div>
+        <div class="form-group pb-4">
+            <label for="phone">Phone :</label>
+            <input type="text" class="form-control mt-1" id="phone" name="phone" required>
+        </div>
+        <div class="form-group pb-4">
+            <label for="travel_date">Travel Date :</label>
+            <input type="date" class="form-control mt-1" id="travel_date" name="travel_date" required>
+        </div>
+        <div class="form-group pb-4">
+            <label for="number_of_people">Number of People :</label>
+            <input type="number" class="form-control mt-1" id="number_of_people" name="number_of_people" required>
+        </div>
+          
+          <input type="submit" value="Book Now" class="submit " required>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

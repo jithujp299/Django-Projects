@@ -1,0 +1,80 @@
+
+{% extends 'html/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+</script>
+
+
+    <div class="destination_banner_wrap overlay">
+        <div class="destination_text text-center">
+            <h3>{{dest.dest_name}}</h3>
+
+        </div>
+    </div>
+
+    <div class="destination_details_info">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9">
+                    <div class="destination_info">
+                        <h3 class="text-light">Description</h3>
+                        <p>{{dest.desc}}
+                            <div class="single_destination">
+                            <h4>Day-01</h4>
+                            <P>{{dest.day1}}</P>
+                        </div>
+                        <div class="single_destination">
+                            <h4>Day-02</h4>
+                            <P>{{dest.day2}}</P>
+                        </div>
+                    {% if dest.day4 != 'NULL'%}
+                        <div class="single_destination">
+                            <h4>Day-03</h4>
+                            <P>{{dest.day3}}</P>
+                        </div>
+                    {%endif%}
+                        {% if dest.day4 != 'NULL'%}
+                        <div class="single_destination">
+                            <h4>Day-04</h4>
+                            <P>{{dest.day4}}</P>
+                        </div>
+                        {%endif%}
+                        {% if dest.day5 != 'NULL'%}
+                        <div class="single_destination">
+                            <h4>Day-05</h4>
+                            <P>{{dest.day5}}</P>
+                        </div>
+                        {%endif%}
+                         {% if dest.day6 != 'NULL'%}
+                        <div class="single_destination">
+                            <h4>Day-06</h4>
+                            <P>{{dest.day6}}</P>
+                        </div>
+                        {%endif%}
+                    </div>
+                    <div class="bordered_1px"></div>
+                    <div class="contact_join">
+                        <h3 class="text-light">Book Now!!</h3>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="submit_btn">                                       
+                                        <a class="boxed-btn4" href="{% url 'booking_form' dest.dest_id %}">Book Here</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

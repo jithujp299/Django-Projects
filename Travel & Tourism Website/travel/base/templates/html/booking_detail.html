@@ -1,0 +1,68 @@
+{% extends 'html/base.html' %}
+
+{% block title %}Booking Details{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<style>
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+    
+    margin-top: 10rem;
+}
+
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 2rem;
+    
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+}
+
+.card-body {
+    padding: 20px;
+    color: white;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+.card-body p strong {
+    font-weight: 600;
+}
+
+    
+</style>
+
+<div class="container">
+    <h2 class="text-center ms-5">Booking Details</h2>
+
+    <div class="card  text-center ">
+        <div class="card-header>
+            <h5 class="card-title">{{ booking.destination }}</h5>
+        </div>
+        <div class="card-body  bg-dark ">
+            <p><strong>Name:</strong> {{ booking.name }}</p>
+            <p><strong>Email:</strong> {{ booking.email }}</p>
+            <p><strong>Phone:</strong> {{ booking.phone }}</p>
+            <p><strong>Travel Date:</strong> {{ booking.travel_date }}</p>
+            <p><strong>Number of People:</strong> {{ booking.number_of_people }}</p>
+            <p><strong>Total Price:</strong> {{ booking.payment_amount }}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

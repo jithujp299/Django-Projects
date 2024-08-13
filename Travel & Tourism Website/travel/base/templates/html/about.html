@@ -1,0 +1,166 @@
+
+{% extends "html/base.html" %}
+
+{% block title %}About{% endblock title %}
+
+{% block content %}
+{% load custom_filters %}
+{% load static %}
+
+
+<div class="bradcam_area bradcam_bg_3">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-12">
+              <div class="bradcam_text text-center">
+                  <h3>About Us</h3>
+                  <p></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div id="menu-btn"></div>
+
+<!-- about-->
+
+<section class="about section" id="about" >
+<div class="container">
+
+<div class="row" style="margin-top: 50px;">
+  <div class="col-md-6 py-3 py-md-0">
+    <div class="card-1">
+      <img src="{% static "/img/about/about-img.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="col-md-6 py-3 py-md-0">
+    <h2>How Travel Agency Work</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perferendis dolorem, numquam earum at nam beatae voluptate natus consectetur facere, saepe cupiditate ut exercitationem deserunt, facilis quam perspiciatis autem iure illo harum minima. Quas, vitae aperiam laudantium alias asperiores nulla rerum, nihil eveniet perferendis sint illum accusamus officiis aliquam nam.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- services-->
+
+
+<section class="services section" id="services">
+<div class="container">
+<div class="main-txt mb-5 text-center">
+  <h1>Services</h1>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+
+  <div class="col-md-4 py-3 py-md-0">
+
+    <div class="card bg-dark">
+      <i class="fas fa-hotel"></i>
+      <div class="card-body">
+        <h3>Affordable Hotel</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4 py-3 py-md-0">
+
+    <div class="card bg-dark">
+      <i class="fas fa-utensils"></i>
+      <div class="card-body ">
+        <h3>Food & Drinks</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4 py-3 py-md-0">
+
+    <div class="card bg-dark">
+      <i class="fas fa-bullhorn"></i>
+      <div class="card-body">
+        <h3>Safty Guide</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="row" style="margin-top: 30px;">
+
+  <div class="col-md-4 py-3 py-md-0">
+
+    <div class="card bg-dark">
+      <i class="fas fa-globe-asia"></i>
+      <div class="card-body">
+        <h3>Around The World</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4 py-3 py-md-0">
+
+    <div class="card bg-dark">
+      <i class="fas fa-plane"></i>
+      <div class="card-body">
+        <h3>Fastest Travel</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4 py-3 py-md-0">
+
+    <div class="card bg-dark">
+      <i class="fas fa-hiking"></i>
+      <div class="card-body">
+        <h3>Adventures</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+</div>
+</section>
+
+
+
+<!--rewiew list-->
+
+<section class="reviews section">
+  <h1 class="heading-title">Clients Reviews</h1>
+  <div class="swiper reviews-slider" style="width: 80rem; height: 20rem; object-fit: cover;">
+      <div class="swiper-wrapper" >
+          {% for review in reviews %}
+              <div class="swiper-slide slide" style="width: 80rem; height: 20rem; object-fit: cover;">
+                  <div class="stars">
+                      {% for i in review.rating|range_filter %}
+                          <i class="fas fa-star"></i>
+                      {% endfor %}
+                      {% calculate_empty_stars 5 review.rating as empty_stars %}
+                      {% for i in empty_stars|range_filter %}
+                          <i class="fa-regular fa-star"></i>
+                      {% endfor %}
+                  </div>
+                  <p>{{ review.content }}</p>
+                  <h3>{{ review.user.username }}</h3>
+                  <span>traveler</span>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+</section>
+
+
+
+{% endblock content %}

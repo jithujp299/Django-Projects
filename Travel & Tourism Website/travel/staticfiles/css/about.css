@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+  
+   --text-shadow:0 1.5rem 3rem rgba(0,0,0,.3);
+   --title-color:hwb(0 95% 5%);
+   --text-color:hwb(0 70% 30%);
+   --text-color-light:hsl(0,0%,70%);
+   --body-color:hsl(0,0%,0%);
+   --container-color:hsl(0,0%,8%);
+}
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none;
+    border:none;
+   text-decoration: none;
+   text-transform: capitalize;
+}
+
+
+.section{
+   padding:5rem 10%;
+}
+body{
+    background-color: var(--body-color);
+}
+.bradcam_bg_3{
+   background-image: url(/static/img/about/about_img.jpg);
+}
+
+.services{
+    background: black;
+}
+.services .card{
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    border: none;
+    cursor: pointer;
+}
+.services .card i{
+    font-size: 80px;
+    text-align: center;
+    color: #ffa500;
+    margin-top: 20px;
+}
+.services .card .card-body h3{
+    font-weight: 600;
+}
+.services .card .card-body{
+    text-align: center;
+}
+
+.content{
+   flex:1 1 41rem;
+   text-align: center;
+   
+}
+.content p{
+   font-size: 1rem;
+   color:var(--text-color);
+   line-height: 2;
+   padding:1rem 0;
+   text-align: justify;
+}
+.icons-container{
+   margin-bottom: 2rem;
+   display: flex;
+   flex-wrap: wrap;
+   gap:1.5rem;
+   align-items: flex-end;
+}
+.icons{
+   background:var(--container-color);
+   padding:1rem;
+   flex:1 1 16rem;
+}
+.icons i{
+   font-size: 3rem;
+   margin-bottom: 2rem;
+   color:blue;
+}
+.icons span{
+   font-size: 1rem;
+   color:var(--title-color);
+   display:block;
+}
+
+.reviews{
+   background: var(--body-color);
+}
+
+.slide{
+   padding:2rem;
+   border:var(--border);
+   background: var(--container-color);
+   text-align: center;
+   box-shadow: var(--box-shadow);
+   user-select: none;
+}
+
+
+
+.stars i{
+   font-size: 1.3rem;
+   color:gold;
+}
+
+
+.swiper-slide {
+   width: 300px; 
+   height: 400px; 
+   
+   box-sizing: border-box;
+   padding: 20px;
+   
+}
+
+
+
+.slide p{
+   font-size: 1rem;
+   color:var(--text-color);
+   line-height: 2;
+   padding:1rem 0;
+   text-align: justify;
+}
+
+.slide h3{
+   font-size: 1.3rem;
+   color:var(--title-color);
+}
+
+.slide span{
+   font-size: 1.2srem;
+   color:var(--title-color);
+   display: block;
+}
+
+

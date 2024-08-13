@@ -1,0 +1,87 @@
+{% extends 'html/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+
+  
+<style>
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.card {
+    margin-top:  10rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+.card-body p strong {
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+    body {
+        background-color: black;
+        color: white;
+    }
+   
+</style>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h2>Payment Details</h2>
+        </div>
+        <div class="card-body bg-dark">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Destination:</strong> {{ destination }}</p>
+            <p><strong>Travel Date:</strong> {{ travel_date }}</p>
+            <p><strong>Number of People:</strong> {{ number_of_people }}</p>
+            <p><strong>Total Price:</strong> {{ total_price }}</p>
+            <p><strong>GST:</strong> {{ gst }}</p>
+            <p><strong>Final Total:</strong> {{ final_total }}</p>
+
+            <form action="{% url 'fake_payment' %}" method="post">
+                {% csrf_token %}
+                
+                <input type="hidden" name="amount" value="{{ final_total }}">
+                <button type="submit" class="btn btn-primary btn-block">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    {% endblock content %}

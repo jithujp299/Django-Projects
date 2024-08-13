@@ -1,0 +1,29 @@
+{% extends "html/demo.html" %}
+
+{% block content %}
+
+<div class="header-nav">
+    <h1 class="title-2">Register</h1>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <label>{{form.username.label}}</label>
+        {{form.username}}
+
+        <label>{{form.password1.label}}</label>
+        {{form.password1}}
+
+        <label>{{form.password2.label}}</label>
+        {{form.password2}}
+
+        <input class="button" style="margin-top: 10px;" type="submit" value="Register">
+    </form>
+    <p> Already have an account <a href="{% url 'login' %}" class="login-1">Login</a></p>
+</div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,101 @@
+{% extends 'html/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-2 {
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        margin-top: 5rem;
+    }
+
+    .content-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px);
+        padding: 20px;
+    }
+
+    .content-section {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+     h1, h2 {
+        margin: 0;
+    }
+
+    .content-section h2 {
+        margin-bottom: 20px;
+    }
+
+    .lists {
+        list-style-type: none;
+        padding: 0;
+    }
+
+     .lists li {
+        margin-bottom: 10px;
+        color: aliceblue;
+    }
+
+    .lists li strong {
+        color: #007bff;
+    }
+
+    .content-section p {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .content-section a {
+        display: inline-block;
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .content-section a:hover {
+        background: #0056b3;
+    }
+</style>
+<header class="header-2">
+    <h1>Payment Successful !!</h1>
+</header>
+<main class="content-2">
+    <section class="content-section bg-dark"> 
+        <h2>Thank you for your booking, {{ user.username }}!</h2>
+        <p>Your payment of  ₹{{ amount }}   has been processed successfully. Here are your booking details:</p>
+        <ul class="lists">
+            <li><strong>Name :  </strong> {{ booking.name }}</li>
+            <li><strong>Destination : </strong> {{ booking.destination }}</li>
+            <li><strong>Travel Date : </strong> {{ booking.travel_date }}</li>
+            <li><strong>Number of People :</strong> {{ booking.number_of_people }}</li>
+            <li><strong>Total Amount : </strong> ₹{{ booking.payment_amount }}</li>
+        </ul>
+        <p>We look forward to having you on this trip!</p>
+        <a href="{% url 'home' %}">Return to Home</a>
+    </section>
+</main>
+{% endblock content %}

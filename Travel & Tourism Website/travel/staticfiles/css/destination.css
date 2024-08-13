@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nothing+You+Could+Do|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+
+
+.bradcam_bg_2 {
+  background-image: url(/static/img/banner/destination-2.jpg);
+}
+
+.bradcam_area {
+  background-size: cover;
+  background-position: center center;
+  padding: 175px 0;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+}
+
+.bradcam_area h3 {
+  font-size: 80px;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 90px;
+  text-transform: capitalize;
+  font-family: "Nothing You Could Do", cursive;
+}
+.bradcam_area::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #040E27;
+  opacity: .1;
+  z-index: -1;
+  content: '';
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  
+  .bradcam_area {
+    padding: 120px 0;
+  }
+}
+
+
+@media (max-width: 767px) {
+  
+  .bradcam_area {
+    padding: 150px 0;
+  }
+  .bradcam_area h3 {
+    font-size: 40px;
+  }
+}
+
+
+
+
+
+
+
+
+
+.destination_banner_wrap {
+  background-image: url(/static/img/banner/destination-1.jpg);
+  padding: 340px 0;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.boxed-btn4 {
+  background: #FF4A52;
+  color: #fff;
+  display: inline-block;
+  padding: 13px 39px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: 0;
+  border-radius: 5px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.boxed-btn4:hover {
+  background: #1EC6B6;
+  color: #fff !important;
+}
+
+.boxed-btn4:focus {
+  outline: none;
+}
+
+.destination_banner_wrap.overlay:before {
+  opacity: .3;
+}
+
+.destination_text h3 {
+  font-size: 80px;
+  line-height: 90px;
+  color: #fff;
+  font-family: "Nothing You Could Do", cursive;
+  margin-bottom: 0;
+}
+
+.single_destination p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.destination_details_info {
+  padding-bottom: 150px;
+  padding-top: 70px;
+}
+
+.bordered_1px {
+  border-top: 1px solid #E4E6E8;
+  margin-top: 65px;
+  padding-bottom: 65px;
+}
+
+
+.destination_info h3 {
+  font-size: 28px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 25px;
+}
+
+
+.destination_info p {
+  margin-bottom: 20px;
+}
+
+.single_destination {
+  margin-bottom: 22px;
+}
+
+.single_destination h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.contact_join h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #001D38;
+  margin-bottom: 32px;
+}
+
+
+@media (max-width: 767px) {
+
+  .destination_banner_wrap {
+    padding: 150px 0;
+  }
+  .destination_text h3 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .destination_details_info {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+ 
+  .destination_text h3 {
+    font-size: 60px;
+    line-height: 70px;
+  }
+  .destination_details_info {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .destination_banner_wrap {
+    padding: 250px 0;
+  }
+
+}
+
+

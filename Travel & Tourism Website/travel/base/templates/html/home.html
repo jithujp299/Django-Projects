@@ -1,0 +1,155 @@
+
+
+{% extends 'html/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+    
+<!--home-section-->
+<section class="home-section">
+    <img src="{% static '/img/secret-3120483.jpg' %}" alt="home image" class="bg-img">
+    <div class="home_shadow"></div>
+    <div class="home_container">
+            <div class="home_data">
+               <h3 class="home-h">Welcome To Travel</h3>
+               <h1 class="home-title">Explore<br>The World</h1>
+               <p class="home-desc">Live the trips exploring the world,discover paradises,islan, mountains and much more, get your trip now.</p>
+               <a href="{% url 'packages' %}" class="button mb-5" >Start Your Jouney <i class="bi bi-arrow-right"></i></a>
+            </div>
+<div class="home_cards" >  
+  {% for dest in dests|slice:":4" %}
+   <article class="home-card">
+      <img src="{{dest.img1.url}}" alt="" class="home-card-img" style="width: 350px; height: 180px; object-fit: cover;">
+      <div class="article_shadow"></div>
+      <a href="destination_list/{{dest.country}}" class="home-card-title-1">{{dest.country}}<span class="span">{{dest.number}} Places</span></h4></a>
+   </article>
+   {% endfor %}
+
+   
+</div>
+</div>
+</section>
+
+<!--about-->
+
+<section class="about-section-1">
+  <div class="about-content">
+    <div class="about-data mt-5">
+      <h1 class="s-title mb-3">Learn More<br>About Travel</h1>
+      <p class="section-desc">All the trips around the world are a great
+        pleasure and happiness for anyone, enjoy
+        the sights when you travel the world. Travel safely and without worries, get 
+        your trip and explore the paradises of the world.
+      </p>
+      <a href=" {% url 'about' %}" class="button mb-2">Explore Travel  <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="about-img mt-5 ">
+      <img src="{% static "/img/about-beachs.jpg" %}" alt=""class="image-about">
+      <div class="about-shadow"></div>
+    </div>
+  </div>
+</section>
+
+<!--popular section-->
+
+<section class="pop-container mt-5 text-center">
+  <h2 class="section-title mb-5">Enjoy The Beauty<br>Of The World</h2>
+  <div class="pop-cards container grid">
+    {% for dest in dest1|slice:":6" %}
+    <article class="pop-card container">
+      <div class="pop-imgs">
+        <a href="destination_details/{{dest.dest_name}}"> <img src="{{dest.img1.url}}" alt="" class="pop-img" style="width: 400px; height: 300px; object-fit: cover;">
+        <div class="pop-shadow"></div>
+      </a>
+      </div>
+      <a href="destination_details/{{dest.dest_name}}"><h2 class="pop-title fs-4">{{dest.dest_name}}</h2></a>
+      
+      <div class="pop-loct">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>{{dest.country}}</span>
+      </div>
+    </article>
+    {%endfor%}
+    
+    
+  </div>
+ 
+<a href="{% url 'packages' %}" class="button-3 button pe-5 ps-5">See More <i class="bi bi-arrow-right ps-2"></i></a>
+</section>
+<!--explore page-->
+
+<section class="explore">
+<div class="explore-container">
+<div class="explore-image-1">
+  <img src="{% static "/img/explore-beach.jpg" %}" alt="explore view" class="explore-img1">
+  <div class="explore-shadow"></div>
+</div>
+<div class="explore-content">
+  <div class="explore-data">
+    <h2 class="section-title">Explore The <br>Best Paradises</h2>
+    <p class="section-desc">
+      Exploring paradises such as islands and valleys when traveling the world
+      is one of the greatest experiences when you travel, it offers you harmony and peace and you can enjoyit with great comfort.
+    </p>
+  </div>
+  <div class="explore-user">
+    <img src="{% static "/img/explore-perfil.png" %}" alt="" class="perfil-img">
+    <span class="explore-name"> Dani Willim</span>
+  </div>
+</div>
+</div>
+</section>
+
+<!--join section-->
+
+<section class="join-section">
+<div class="join-container">
+<div class="join-data">
+  <h2 class="section-title">Your Journey <br> Start Here</h2>
+  <p class="join-desc">Get up to date with the latest travel and <br> information from us</p>
+  <form action="{% url 'subscribe' %}"  method="post" class="join-form">
+    {% csrf_token %}
+      <label for="">{{ forms.email }}</label>
+
+    <button class="join-button button">Subscribe Our Newsletter <i class="bi bi-arrow-right"></i></button>
+  </form>
+</div>
+<div class="join-image">
+  <img src="{% static "/img/join-island.jpg" %}" class="join-img" alt="">
+  <div class="join-shadow"></div>
+</div>
+</div>
+</section>
+
+<!--review section-->
+
+
+<div class="wrapper-1 mt-5">
+  <h3>User Review</h3><hr>
+  <form method="post" action="{% url 'add_review' %}">
+    {% csrf_token %}
+    <div class="rating">
+        <input type="number" name="rating" hidden id="rating-value">
+        <i class='bx bx-star star' style="--i: 0;"></i>
+        <i class='bx bx-star star' style="--i: 1;"></i>
+        <i class='bx bx-star star' style="--i: 2;"></i>
+        <i class='bx bx-star star' style="--i: 3;"></i>
+        <i class='bx bx-star star' style="--i: 4;"></i>
+    </div>
+    
+    <textarea name="title" class="mb-1" cols="10" rows="1" placeholder="Title">{{ form.title.value }}</textarea>
+    
+    <textarea name="content" cols="30" rows="5" placeholder="Your opinion...">{{ form.content.value }}</textarea>
+    
+    <div class="btn-group mt-3">
+        <button type="submit" class="btn submit">Submit</button>
+    </div>
+</form>
+</div>
+
+
+{% endblock content %}

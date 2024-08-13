@@ -1,0 +1,49 @@
+{% extends "html/base.html" %}
+
+{% block title %}Package{% endblock title %}
+
+{% block content %}
+{% load static %}
+
+<!--header-->
+
+
+<div class="bradcam_area bradcam_bg_1">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-12">
+              <div class="bradcam_text text-center">
+                  <h3>Packages</h3>
+                  <p></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+ 
+<!--packages-->
+    
+
+<section class="gallary mb-5" id="gallary">
+  <div class="container">
+    <div class="main-txt">
+      <h1>Gallary</h1>
+    </div>
+    <div class="row" >
+      {% for dest in dests %}
+      <div class="col-md-4 py-3 py-md-0" style="margin-top: 30px;">
+       
+         <article class="home-card">
+            <img src="{{dest.img1.url}}" alt="" class="home-card-img" style="width: 450px; height: 250px; object-fit: cover;">
+            <div class="article_shadow"></div>
+            <a href="{% url 'destination_list' dest.country %}" class="home-card-title-1">{{dest.country}}<span class="span">{{dest.number}} Places</span></h4></a>
+         </article>
+         
+      </div>
+      {% endfor %}
+  </div>
+</section>
+    
+
+
+{% endblock content %}

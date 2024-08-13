@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+<style>
+    
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url({% static "img/lake-1365288.jpg" %}) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+ input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+.register-1,.login-1{
+color: wheat;
+padding-left: .4rem;
+}
+.title-2{
+    text-align: center;
+}
+.container{
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(9px);
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+}
+.button{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: .8rem;
+    padding-top: .9rem;
+    font-weight: 600;
+                  
+}
+.card-body{
+    padding: 2rem;
+}
+</style>
+    </head>
+    <body>
+       <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+       </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
