@@ -1,0 +1,131 @@
+{% extends "doctor/doctor_dashboard.html" %}
+{% block content %}
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- CSS for DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+
+  <!-- JS for DataTables -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .panel-heading {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel-title {
+      margin: 0;
+    }
+
+    .btn {
+      margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .panel-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+          'copyHtml5',
+          'excelHtml5',
+          'csvHtml5',
+          'pdfHtml5'
+        ]
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h6 class="panel-title">Patient Records</h6>
+        <a href="{% url 'add_patients' %}" class="btn btn-sm btn-success"><i class="fa-solid fa-user-plus"></i> Add patient</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover" id="example">
+          <thead>
+            <tr>
+              <th>Sr no</th>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Contact</th>
+              <th>Medicine_Details</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in patient %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ p.submitted_time | date:'d-m-Y' }}</td>
+              <td>{{ p.name }}</td>
+              <td>{{ p.age }}</td>
+              <td>{{ p.gender }}</td>
+              <td>{{ p.mobile }}</td>
+              <td>{{ p.medcine_detail }}</td>
+              <td>{{ p.amount }}</td>
+              <td>
+                <a class="btn btn-primary btn-xs" href="{% url 'update_patient' p.id %}">
+                  <span class="glyphicon glyphicon-edit"></span>
+                </a>
+                <a class="btn btn-danger btn-xs" href="{% url 'delete_patient' p.id %}">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+{% endblock content %}

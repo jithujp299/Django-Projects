@@ -1,0 +1,115 @@
+{% extends 'admin/admin_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style>
+    
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+    .description-field {
+      margin:0;
+      padding:0;
+      width: 100%;
+      height: 100px;  
+      resize: vertical; 
+       
+    }
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<br><br>
+<!--add appointment-->
+
+<form method="post">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>Book Appointment Details</p>
+      </div>
+      
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.your_name class="form-control" placeholder="your_name" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.phone_number class="form-control" placeholder="phone_number" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.e_mail class="form-control" placeholder="e_mail" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.gender class="form-control" placeholder="gender" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.department class="form-control description-field" placeholder="department" %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.select_date class="form-control" placeholder="select_date" %}
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group mb-4">
+              {% render_field appointmentForm.description class="form-control " placeholder="description" %}
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btnSubmit">Book</button>
+      </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</form>
+
+
+{% endblock content %}

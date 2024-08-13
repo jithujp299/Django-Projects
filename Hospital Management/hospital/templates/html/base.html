@@ -1,0 +1,382 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hospital Management</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--css style-->
+        <link rel="stylesheet" href="{% static "/css/styles.css" %}">
+        <link rel="stylesheet" href="">
+
+        <!--bootstrap-5-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+         <!-- Font Awesome CDN -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Lib owlcarousel -->
+        <link href="{% static 'css/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <style>
+          
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+a:hover{
+  color: orange;
+}
+
+header{
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  padding:0 2rem;
+}
+
+.navbar{
+  width: 100%;
+  height:60px;
+  max-width: 1200px;
+  margin:0 auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo a{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .links{
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn{
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.action_btn{
+  background-color: orange;
+  color: white;
+  padding: .5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: .8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+  scale:1.05;
+  color: black;
+}
+
+.action_btn:active{
+  scale: 0.95;
+}
+/*dropdown*/
+
+.dropdown_menu{
+  
+  display: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1000; 
+  right: 2rem;
+  top:60px;
+  height: 0;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  backdrop-filter: blur(25px);
+  border-radius: 10px;
+  outline: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.dropdown_menu.open{
+  height: 240px;
+}
+.dropdown_menu li{
+  padding: .7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropdown_menu .action_btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+
+@media (max-width:992px) {
+  .navbar .links,
+  .navbar .action_btn{
+    display: none;
+  }
+  .navbar .toggle_btn{
+    display: block;
+  }
+  .dropdown_menu{
+    display: block;
+  }
+}
+
+@media (max-width:576px) {
+  
+  .dropdown_menu{
+    left: 2rem;
+    width: unset;
+  }
+}
+
+body{
+  background: #fcfcfc;
+}
+footer{
+  
+  background: #111;
+  height: auto;
+  width: 100vw;
+  font-family: "Open Sans";
+  padding-top: 40px;
+  color: #fff;
+}
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3{
+  font-size: 1.8rem;
+  color:grey;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li{
+  margin: 0 10px;
+}
+.socials a{
+  text-decoration: none;
+  color: #fff;
+}
+.socials a i{
+  font-size: 1.1rem;
+  transition: color .4s ease;
+
+}
+.socials a:hover i{
+  color: aqua;
+}
+
+.footer-bottom{
+  background: #000;
+  width: 100vw;
+  padding: 5px 0;
+  text-align: center;
+}
+.footer-bottom p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+.footer-bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 200;
+}
+
+.additional-left-icon::before {
+  content: "\f053";
+  font-family: 'FontAwesome';
+  margin-left: 5px;
+}
+
+.additional-right-icon::before {
+  content: "\f054"; 
+  font-family: 'FontAwesome';
+  margin-left: 5px;
+}
+
+
+.owl-nav .owl-prev, .owl-nav .owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.owl-nav .owl-prev {
+  left: -45px;
+}
+
+.owl-nav .owl-next {
+  right: -45px;
+}
+
+.owl-nav i {
+  font-size: 2rem;
+  color: #0cb8b6;
+}
+
+  </style>
+
+  </head>
+  <body>
+
+<!--navbar-->
+
+<header class="bg-dark fixed-position ">
+  <div class="navbar">
+    <div class="logo"><a href="">logo</a></div>
+    <ul class="links mt-2">
+      <li><a href="{% url "home" %}">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="{% url "contactus" %}">Contact</a></li>
+      <li><a href="{% url "create_appointment" %}">Appointment</a></li>
+    </ul>
+    {% if request.user.is_authenticated %}
+    <li><a class="action_btn" href="{% url "logout" %}">Logout</a></li>
+    {% else %}
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle action_btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Login
+      </a>
+      <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item " href="/patientlogin">Patient</a></li>
+        <li><a class="dropdown-item " href="/doctorlogin">Doctor</a></li>
+        <li><a class="dropdown-item " href="/adminlogin">Admin</a></li>
+      </ul>
+    </li>
+    {% endif %}
+
+    
+    <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+  </div>
+
+  <div class="dropdown_menu">
+    <li><a href="{% url "home" %}">Home</a></li>
+    <li><a href="{% url "about" %}">About</a></li>
+    <li><a href="{% url "contactus" %}">Contact</a></li>
+    <li><a href="{% url "contactus" %}">Appointment</a></li>
+    {% if not request.user.is_authenticated %}
+    
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle action_btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Login
+      </a>
+      <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="/patientlogin">Patient</a></li>
+        <li><a class="dropdown-item" href="/doctorlogin">Doctor</a></li>
+        <li><a class="dropdown-item" href="/adminlogin">Admin</a></li>
+      </ul>
+    </li>
+    {% else %}
+    <li><a class="action_btn" href="{% url "logout" %}">Logout</a></li>
+    {% endif %}
+  </div>
+</header>
+
+
+
+{% block content %}
+
+
+
+{% endblock content %}
+
+<!--footer-->
+
+
+<footer>
+  <div class="footer-content">
+      <h3>Hospital Management</h3>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo iste corrupti doloribus odio sed!</p>
+      <ul class="socials">
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-square"></i></a></li>
+      </ul>
+  </div>
+  <div class="footer-bottom">
+      <p>copyright &copy;2024 </span></p>
+  </div>
+</footer>
+
+
+ <!-- owlcarousel Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+ <script src="{% static "/css/owlcarousel/owl.carousel.min.js" %}"></script>
+ <!-- Template Javascript -->
+ <script src="{% static "/js/javascript.js" %}"></script>
+
+        
+<!--bootstap js-->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+
+ const toggleBtn = document.querySelector('.toggle_btn')
+ const toggleBtnIcon = document.querySelector('.toggle_btn i')
+ const dropDownMenu = document.querySelector('.dropdown_menu')
+
+      toggleBtn.onclick = function() {
+        dropDownMenu.classList.toggle('open')
+        const isOpen = dropDownMenu.classList.contains('open')
+
+        toggleBtnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+      }
+     
+</script>
+
+
+    </body>
+</html>

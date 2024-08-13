@@ -1,0 +1,152 @@
+{% extends "html/navbar.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hospital Management</title>
+
+
+  <style>
+  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #E8EDF2;
+}
+
+div.container-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 50px 50px -50px darkslategray;
+}
+
+div.container-1 div.myform {
+  width: 270px;
+  margin-right: 30px;
+}
+
+div.container-1 div.myform h2 {
+  color: #1c1c1e;
+  margin-bottom: 20px;
+}
+
+div.container-1 div.myform input {
+  border: none;
+  outline: none;
+  border-radius: 0;
+  width: 100%;
+  border-bottom: 2px solid #1c1c1e;
+  margin-bottom: 25px;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+div.container-1 div.myform button {
+  color: white;
+  background-color: #1c1c1e;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  font-size: 14px;
+  padding: 5px 12px;
+  font-weight: 500;
+}
+
+div.container-1 div.image img {
+  width: 450px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  div.container-1 {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  div.container-1 div.myform {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  div.container-1 div.image img {
+    width: 11rem;
+    height:14rem;
+  }
+}
+
+@media (max-width: 480px) {
+  div.container-1 {
+    padding: 15px;
+  }
+
+  div.container-1 div.myform h2 {
+    font-size: 18px;
+  }
+
+  div.container-1 div.myform input,
+  div.container-1 div.myform button {
+    font-size: 12px;
+  }
+}
+.signup span{
+    color: black;
+    font-size: 10px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+.signup span a{
+    font-weight: 500;
+    font-size:12px;
+    color: blue;
+    margin-left:2px;
+    
+}
+.signup span a:hover{
+  text-decoration: underline;
+}
+  </style>
+</head>
+<body>
+ 
+<div class="container-1">
+  <div class="myform">
+    <form method="post">
+      {% csrf_token %}
+      <h2>ADMIN LOGIN</h2>
+      {% render_field form.username class="form-control" placeholder="Username" %}
+      {% render_field form.password class="form-control" placeholder="Password" %}
+      <button type="submit">LOGIN</button>
+    </form>
+    <div class="signup pt-3">
+      <span>Don't have an account? <a href="/adminsignup">Sign Up</a></span>
+  </div>
+  </div>
+  <div class="image">
+    <img src="{% static 'img/login_admin.jpg' %}">
+  </div>
+</div> 
+
+</body>
+
+</html>
+{% endblock content %}

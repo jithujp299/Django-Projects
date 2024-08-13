@@ -1,0 +1,251 @@
+{% extends "html/base.html" %}
+{% load widget_tweaks %}
+{% block content %}
+{% load static %}
+
+
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <section id="banner"  class="banner" style="min-height: 100vh;">
+        <div class="bg-color" style="min-height: 100vh;">
+          
+          <div class="container">
+            <div class="row">
+              <div class="banner-info">
+                <div class="logo text-center">
+                  <img src="{% static "img/logo.png" %}" class="img-responsive" style="width: 200px; height: 200px;">
+                </div>
+                <div class="banner-text text-center">
+                  <h1 class="white">Nurturing Health, Inspiring Hope</h1>
+                  <p>Discover a new era of healthcare at SHC Hospital,<br> where innovation meets compassion.</p>
+                  <a href="{% url "create_appointment" %}" class="btn btn-appoint" style="background-color: aqua;">Make an Appointment</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+  <!--service-->
+  <section id="service" class="section-padding "> 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+          <h2 class="ser-title" style="color: #0cb8b6;">Our Service</h2>
+          <hr class="botm-line">
+          <p>Discover a world of comfort and healing at SHC Hospital. Our commitment to your well-being goes beyond words. We understand that your health is a journey, and we are here to support you every step of the way.</p>
+          <p>With a team of dedicated professionals, we provide personalized care that addresses your unique needs. Our state-of-the-art facilities and cutting-edge medical technologies ensure that you receive the highest quality treatment available.</p>
+          <p>At SHC Hospital, we don't just care for your ailments; we care for you. Trust us to provide the compassion, expertise, and innovation needed to restore and enhance your health.</p>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="service-info">
+            <div class="icon">
+              <i class="fa fa-stethoscope"></i>
+            </div>
+            <div class="icon-info">
+              <h4>24 Hour Support</h4>
+              <p>Experience peace of mind with our 24/7 support at SHC Hospital. We're here for you around the clock, providing immediate assistance, answering your queries, and ensuring you receive the care you need when you need it most. Your well-being is our priority, and our dedicated team is just a call away, ready to support you at any hour.</p>
+            </div>
+          </div>
+          <div class="service-info">
+            <div class="icon">
+              <i class="fas fa-microscope"></i>
+            </div>
+            <div class="icon-info">
+              <h4>Radiology Excellence</h4>
+              <p>Experience cutting-edge diagnostics at SHC Hospital's Radiology Department. Our advanced imaging technologies and skilled radiologists ensure accurate and timely results. From X-rays to state-of-the-art scans, we are committed to providing precise and comprehensive diagnostic services to support your health journey.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="service-info">
+            <div class="icon">
+              <i class="fa fa-heartbeat"></i>
+            </div>
+            <div class="icon-info">
+              <h4>Surgery</h4>
+              <p>Trust the expertise of our surgical team at SHC Hospital. With a commitment to precision and safety, we offer a range of surgical solutions tailored to your needs. Our experienced surgeons, coupled with modern surgical facilities, ensure optimal outcomes. Your well-being is paramount, and we strive for excellence in every procedure we undertake.</p>
+            </div>
+          </div>
+          <div class="service-info">
+            <div class="icon">
+              <i class="fa fa-medkit"></i>
+            </div>
+            <div class="icon-info">
+              <h4>Pinnacle of Wellness</h4>
+              <p>Experience the epitome of care at SHC Wellness Hub. Our dedication to premium healthcare sets us apart. Unmatched expertise, personalized attention, and state-of-the-art facilities converge to create a realm of well-being like no other. Choose SHC Wellness Hub for a journey where your health takes center stage in a world of exclusive care.</p>              
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--about-->
+
+<div class="container-fluid py-5">
+  <div class="container">
+      <div class="row gx-5">
+          <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+              <div class="position-relative h-100">
+                  <img class="position-absolute w-100 h-100 rounded" src="{% static "img/about.jpg" %}" style="object-fit: cover;">
+              </div>
+          </div>
+          <div class="col-lg-7">
+              <div class="mb-4">
+                  <h5 class="d-inline-block text-uppercase border-bottom border-5 fs-2"style="color: #0cb8b6;">About Us</h5>
+                  <h1 class="display-4">Best Medical Care For Yourself and Your Family</h1>
+              </div>
+              <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor consetetur takimata eirmod, dolores takimata consetetur invidunt magna dolores aliquyam dolores dolore. Amet erat amet et magna</p>
+              <div class="row g-3 pt-3">
+                  <div class="col-sm-3 col-6">
+                      <div class="bg-light text-center rounded-circle py-4">
+                        <div class="icon"><i class="fa fa-3x fa-user-md  mb-3"></i></div>
+                          <h6 class="mb-0">Qualified<small class="d-block " style="color: #0cb8b6;">Doctors</small></h6>
+                      </div>
+                  </div>
+                  <div class="col-sm-3 col-6">
+                      <div class="bg-light text-center rounded-circle py-4">
+                        <div class="icon"><i class="fa fa-3x fa-procedures  mb-3"></i></div>
+                          <h6 class="mb-0">Emergency<small class="d-block " style="color: #0cb8b6;">Services</small></h6>
+                      </div>
+                  </div>
+                  <div class="col-sm-3 col-6">
+                      <div class="bg-light text-center rounded-circle py-4">
+                        <div class="icon"><i class="fa fa-3x fa-microscope  mb-3"></i></div>
+                          <h6 class="mb-0">Accurate<small class="d-block " style="color: #0cb8b6;">Testing</small></h6>
+                      </div>
+                  </div>
+                  <div class="col-sm-3 col-6">
+                      <div class="bg-light text-center rounded-circle py-4">
+                        <div class="icon"><i class="fa fa-3x fa-ambulance mb-3"></i></div>
+                          <h6 class="mb-0">Free<small class="d-block " style="color: #0cb8b6;">Ambulance</small></h6>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!--doctor section-->
+
+<div class="container-fluid py-5">
+  <div class="container">
+      <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+          <h5 class="d-inline-block  fs-2 text-uppercase border-bottom border-5" style="color:#0cb8b6;">Our Doctors</h5>
+          <h1 class="display-5">Qualified Healthcare Professionals</h1>
+      </div>
+      <div class="owl-carousel team-carousel position-relative">
+          <div class="team-item">
+              <div class="row g-0 bg-light rounded overflow-hidden">
+                  <div class="col-12 col-sm-5 h-100">
+                      <img class="img-fluid h-100" src="{% static "img/doctor/team-1.jpg" %}" style="object-fit: cover;">
+                  </div>
+                  <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                      <div class="mt-auto p-4">
+                          <h3>Doctor Name</h3>
+                          <h6 class="fw-normal fst-italic  mb-4" style="color:#0cb8b6;">Cardiology Specialist</h6>
+                          <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                      </div>
+                      <div class="d-flex mt-auto border-top p-4">
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle me-3" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-twitter"></i></a>
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle me-3" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-facebook-f"></i></a>
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="team-item">
+              <div class="row g-0 bg-light rounded overflow-hidden">
+                  <div class="col-12 col-sm-5 h-100">
+                      <img class="img-fluid h-100" src="{% static "img/doctor/team-2.jpg" %}" style="object-fit: cover;">
+                  </div>
+                  <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                      <div class="mt-auto p-4">
+                          <h3>Doctor Name</h3>
+                          <h6 class="fw-normal fst-italic mb-4" style="color:#0cb8b6;">Cardiology Specialist</h6>
+                          <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                      </div>
+                      <div class="d-flex mt-auto border-top p-4">
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle me-3" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-twitter"></i></a>
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle me-3" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-facebook-f"></i></a>
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="team-item">
+              <div class="row g-0 bg-light rounded overflow-hidden">
+                  <div class="col-12 col-sm-5 h-100">
+                      <img class="img-fluid h-100" src="{% static "img/doctor/team-3.jpg" %}" style="object-fit: cover;">
+                  </div>
+                  <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                      <div class="mt-auto p-4">
+                          <h3>Doctor Name</h3>
+                          <h6 class="fw-normal fst-italic mb-4" style="color:#0cb8b6;">Cardiology Specialist</h6>
+                          <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                      </div>
+                      <div class="d-flex mt-auto border-top p-4">
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle me-3" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-twitter"></i></a>
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle me-3" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-facebook-f"></i></a>
+                          <a class="btn btn-lg btn-info btn-lg-square rounded-circle" href="https://www.facebook.com/"><i style="color: white;" class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+ <!-- contact section -->
+ <div class="container-fluid pt-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+      <h5 class="d-inline-block text-uppercase border-bottom border-5 fs-3" style="color:#0cb8b6;">Contact Us</h5>
+      <h1 class="display-6">Please Feel Free To Contact Us</h1>
+    </div>
+      <div class="row">
+          <div class="col-12" style="height: 500px;">
+              <div class="position-relative h-100">
+                  <iframe class="position-relative w-100 h-100"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2384.6268289831164!2d-6.214682984112116!3d53.29621947996855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486709e0c9c80f8f%3A0x92f408d10f2277c2!2sREVO!5e0!3m2!1sen!2snp!4v1636264848776!5m2!1sen!2snp"
+                      frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                      tabindex="0"></iframe>
+              </div>
+          </div>
+      </div>
+      <div class="row justify-content-center position-relative" style="margin-top: -200px; z-index: 1;">
+          <div class="col-lg-8">
+              <div class="bg-white rounded p-5 m-5 mb-0">
+                  <form method = "post">
+                    {% csrf_token %}
+                      <div class="row g-3">
+                          <div class="col-12 col-sm-6">
+                            {% render_field form.name  placeholder="Your Name" class="form-control bg-light border-0" style="height: 55px;" %}
+                              
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            {% render_field form.email  placeholder="E-mail" class="form-control bg-light border-0" style="height: 55px;" %}
+                              
+                          </div>
+                          
+                          <div class="col-12">
+                            {% render_field form.message  placeholder="Message" class="form-control bg-light border-0"  style="height: 70px;" %}
+                              
+                          </div>
+                          <div class="col-12">
+                              <button class="btn btn-info w-100 py-3" type="submit" style="color: white;">Send Message</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+
+
